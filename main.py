@@ -60,7 +60,15 @@ def search_for_email():
                 links.extend(extract_links_from_html(content))
     conn.logout()
     return links
-                    
+
+
+def save_links(links):
+    with open("links.txt", "w") as f:
+        f.write("\n".joins(links))
+        
+                       
 links = search_for_email()
 for link in links:
     click_link(link)
+    
+save_links(links)
