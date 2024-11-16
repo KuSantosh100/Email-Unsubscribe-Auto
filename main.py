@@ -5,6 +5,7 @@ from imaplib import IMAP4_SSL
 import email
 from bs4 import BeautifulSoup # pip install beautifulsoup4
 import requests # pip install requests
+from GUI import create_gui
 
 load_dotenv()
 
@@ -61,6 +62,9 @@ def search_for_email():
     conn.logout()
     return links
                     
+                    
+print("Launching the Email Credential GUI...")
+create_gui()
 links = search_for_email()
 for link in links:
     click_link(link)
